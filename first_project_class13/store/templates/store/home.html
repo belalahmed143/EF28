@@ -1,0 +1,112 @@
+{% extends 'store/base.html' %}
+
+{% block title %}
+            Python Django -EF28
+{% endblock title %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          {% for c in banner %}
+          
+          {% if forloop.counter == 1 %}
+          <div class="carousel-item active">
+          {% else %}
+          <div class="carousel-item">
+          {% endif %}
+            <img src="{{ c.image.url }}" class="d-block w-100" alt="..." style="height: 450px;">
+          </div>
+          {% endfor %}
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+</div>
+
+<div class="container">
+    <h3>Best Product</h3>
+    <div class="row">
+      
+      {% for p in product %}
+      <div class="col-6 col-md-4 col-lg-3 my-5">
+        <div class="card " >
+            <img src="{{ p.image.url }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-center">{{ p.name }}</h5>
+              <p class="card-text">{{ p.price }}</p>
+              <p class="card-text">{{ p.category.name }}</p>
+              <img src="{{ p.category.image.url }}" alt="" style="width: 50px;">
+            </div>
+          </div>     
+    </div>
+      {% endfor %}
+        
+
+    </div>
+
+</div>
+
+<div class="container">
+  <h3>Cate-1 Product</h3>
+  <div class="row">
+    
+    {% for p in cate1_product %}
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card " >
+          <img src="{{ p.image.url }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title text-center">{{ p.name }}</h5>
+            <p class="card-text">{{ p.price }}</p>
+            <p class="card-text">{{ p.category.name }}</p>
+            <img src="{{ p.category.image.url }}" alt="" style="width: 50px;">
+          </div>
+        </div>     
+  </div>
+    {% endfor %}
+  
+  </div>
+
+  <h1>last_product</h1>
+  <div class="card " >
+    <img src="{{ last_product.image.url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title text-center">{{ last_product.name }}</h5>
+      <p class="card-text">{{ last_product.price }}</p>
+      <p class="card-text">{{ last_product.category.name }}</p>
+      <img src="{{ last_product.category.image.url }}" alt="" style="width: 50px;">
+    </div>
+  </div>  
+</div>
+
+<h1>first_product</h1>
+<div class="card " >
+  <img src="{{ first_product.image.url }}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title text-center">{{ first_product.name }}</h5>
+    <p class="card-text">{{ first_product.price }}</p>
+    <p class="card-text">{{ first_product.category.name }}</p>
+    <img src="{{ first_product.category.image.url }}" alt="" style="width: 50px;">
+  </div>
+</div>  
+{% endblock content %}
+
+{% block script %}
+    
+{% endblock script %}
+
+
+

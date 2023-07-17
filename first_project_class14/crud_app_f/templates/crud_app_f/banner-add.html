@@ -1,0 +1,20 @@
+{% extends 'crud_app_f/base.html' %}
+{% load crispy_forms_tags %}
+{% block dashboardcontent %}
+
+    <div class="container" style="margin-top: 100px;">
+        <div class="row">
+            <div class="col-7 mx-auto">
+                <div class="card shadow p-3">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+
+                        <button class="btn btn-info" type="submit">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock dashboardcontent %}

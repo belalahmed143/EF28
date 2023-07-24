@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Molla - Bootstrap eCommerce Template</title>
+    <meta name="keywords" content="HTML5 Template">
+    <meta name="description" content="Molla - Bootstrap eCommerce Template">
+    <meta name="author" content="p-themes">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'store/images/favicon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'store/images/favicon.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'store/images/favicon.png' %}">
+    <link rel="manifest" href="{% static 'store/images/icons/site.html' %}">
+    <link rel="mask-icon" href="{% static 'store/images/icons/safari-pinned-tab.svg' %}" color="#666666">
+    <link rel="shortcut icon" href="{% static 'store/images/icons/favicon.ico' %}">
+    <meta name="apple-mobile-web-app-title" content="Molla">
+    <meta name="application-name" content="Molla">
+    <meta name="msapplication-TileColor" content="#cc9966">
+    <meta name="msapplication-config" content="{% static 'store/images/icons/browserconfig.xml' %}">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Plugins CSS File -->
+    <link rel="stylesheet" href="{% static 'store/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/plugins/owl-carousel/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/plugins/magnific-popup/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/plugins/jquery.countdown.css' %}">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="{% static 'store/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/skins/skin-demo-7.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/demos/demo-7.css' %}">
+
+<style>
+      .load-card{
+            display:none;
+        }
+        .load-more{
+        background-color:#000;
+        color:#fff !important;
+        padding:5px 10px;
+        border-radius:4px;
+        font-size:20px;
+        margin:50px 0;
+        display:inline-block;
+        }
+
+        .load-more:hover{
+        background-color:blue;
+        text-decoration:none;
+        }
+</style>
+</head>
+
+<body>
+    <div class="page-wrapper">
+        {% include 'store/includes/navbar.html' %}
+    
+        {% block storeapp_content %}
+        
+        {% endblock storeapp_content %}
+    
+        {% include 'store/includes/footer.html' %}
+    </div><!-- End .page-wrapper -->
+    <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+    
+
+    
+    <!-- Plugins JS File -->
+    <script src="{% static 'store/js/jquery.min.js' %}"></script>
+    <script src="{% static 'store/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'store/js/jquery.hoverIntent.min.js' %}"></script>
+    <script src="{% static 'store/js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'store/js/superfish.min.js' %}"></script>
+    <script src="{% static 'store/js/bootstrap-input-spinner.js' %}"></script>
+    <script src="{% static 'store/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'store/js/jquery.plugin.min.js' %}"></script>
+    <script src="{% static 'store/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'store/js/jquery.countdown.min.js' %}"></script>
+    <!-- Main JS File -->
+    <script src="{% static 'store/js/main.js' %}"></script>
+    <script src="{% static 'store/js/demos/demo-7.js' %}"></script>
+
+    <script>
+        $(function () {
+            $(".load-card").slice(0, 3).show();
+            $("body").on('click touchstart', '.load-more', function (e) {
+                e.preventDefault();
+                $(".load-card:hidden").slice(0, 3).slideDown();
+                if ($(".load-card:hidden").length == 0) {
+                    $(".load-more").css('visibility', 'hidden');
+                }
+                $('html,body').animate({
+                    scrollTop: $(this).offset().top
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+
+</html>

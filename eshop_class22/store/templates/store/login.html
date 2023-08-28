@@ -1,0 +1,21 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block storeapp_content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <form action="" method="POST">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <button type="submit">Login</button>
+            </form>
+            <a href="{% url 'password_reset' %}">password-reset</a>
+        </div>
+    </div>
+</div>
+
+{% endblock storeapp_content %}

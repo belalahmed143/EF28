@@ -1,0 +1,72 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block storeapp_content %}
+    <div class="container">
+        <div class="row">
+            
+            {% if search_result %}
+            {% for c in search_result %}
+            <div class="product product-7 text-center col-6 col-md-4 col-lg-3">
+                <figure class="product-media">
+                    <a href="{% url 'product-detail' c.pk %}">
+                        <img src="{{ c.image.url }}" alt="Product image" class="product-image">
+                    </a>
+
+                    <div class="product-action-vertical">
+                        <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                        <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
+                    </div><!-- End .product-action-vertical -->
+
+                    <div class="product-action">
+                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                    </div><!-- End .product-action -->
+                </figure><!-- End .product-media -->
+
+                <div class="product-body">
+                    <h3 class="product-title"><a href="{% url 'product-detail' c.pk %}">{{ c.name }}</a></h3><!-- End .product-title -->
+                    <div class="product-price">
+                        
+                        {% if c.discount_price %}
+                        <span class="new-price">${{ c.discount_price }}</span>
+                        <span class="old-price">${{ c.price }}</span>
+                        {% else %}
+                        <span class="new-price">${{ c.price }}</span>
+                        {% endif %}
+                            
+
+                    </div><!-- End .product-price -->
+                </div><!-- End .product-body -->
+            </div><!-- End .product -->
+            {% endfor %}
+            {% else %}
+            
+            <div class="col-12">
+                <h3>Your search - <b>{{ request.GET.q }}</b> - did not match any documents.</h3>
+                
+                
+                <div class="card">
+                    <p>Suggestions:</p>
+                    <ul>
+                        <li>Make sure that all words are spelled correctly.</li>
+                        <li>Try different keywords.</li>
+                        <li>Try more general keywords.</li>
+                        <li>Try fewer keywords.</li>
+                    </ul>
+                </div>
+            </div>
+                
+            {% endif %}
+                              
+        </div>
+    </div>
+
+
+
+
+
+
+
+{% endblock storeapp_content %}
+
+    
